@@ -1,0 +1,31 @@
+Optic flow is controller by 'Flow' script, that should be attached to camera / VR rig. The player can be placed anywhere and it will loop in place there, but by default the middle is good (0,0,50). To set up optic flow in different directions, change the starting rotation of the camera / VR rig appropriately. This also applies to rotation (you can achieve the different variants by starting with either 0 rotation, 90 degree on x-axis or 90 degree on y-axis)
+
+Parameters:
+
+Gap - Interval for looping the movement, should match the object density on z-axis, which is currently 1
+Speed - Linear velocity on z-axis
+Rotation - Angular velocity in world space
+
+The following parameters are for controlling a periodic acceleration setup. The setup consists of linear, then acceleration, then deceleration periods, which then loops.
+
+Acceleration - Acceleration of velocity
+Angular Acceleration - Acceleration of angular velocity
+Linear Time - Duration of the linear velocity period
+Acceleration Time - Duration of the acceleration period
+Random Acceleration Swing - Add or remove up to this amount from acceleration time on each iteration
+Deceleration Time - Duration of the deceleration period. Velocity and angular velocity linearly reverts back to 'Speed' and 'Rotation' during this period
+
+The visuals can be changed using the GridSpawner script, which can be found from the top toolbar in Unity, under 'Custom'. This will instantiate objects in a customizable grid on the xy-axis. Lengthy LineRenderers are used to fill the z-axis. In addition, real time version of this script is attached to GridSpawner. If you try to make too big and rapid changes in real time, it could be laggy, but it should be fine. Enable the 'Refresh' boolean variable to make it spawn the objects with the new parameters while the program is running.
+
+Parameters:
+
+Parent - The parent object under which the objects are instantiated. Existing objects under the parent will be deleted by this script, so you should always choose the same one
+Grid Object - The object that will be instantiated in the grid. You can drag a prefab from the editor here. There is prefab called 'Line' you can use
+Gap - Gap between the objects in the grid. Smaller number makes the grid more dense
+Safearea - Size of the empty space in the middle to prevent objects in player's face
+Size - Amount of objects in every direction. Amount of objects on x and y axes is double this number
+Offset - Constant offset applied to the position of every instantiated object
+Alternating Offset - x-offset is applied to every other object on y-axis, and y-offset is applied to every other object on x-axis. z-offset is unused
+Random offset - Applies a random offset to each instantiated object, +- up to the specified amount on each axis
+
+Furthermore, the texture on the LineRenderer defines the shape of the objects, and the width of the LineRenderer can also be changed. With the texture that is there, the shape can be customized in real-time by adjusting the alpha cutoff, where 1 equals a circle and going down from there makes it a line, where lower values equal a longer line. Custom shader is used to darken the visuals based on distance, as otherwise far objects would produce a lot of shimmering.

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Main.unity
+    guid: a4f5a922d8ef24f408a8c63b398c165f
+  - enabled: 1
+    path: Assets/Scenes/CANVAS_1.unity
+    guid: 67f02fb74f3545547b20d0972ee804cc
+  - enabled: 1
+    path: Assets/Scenes/CANVAS_2.unity
+    guid: 982c57847f51c9647a2149cb123311c9
+  - enabled: 1
+    path: Assets/Scenes/CANVAS_3.unity
+    guid: 00eef436d3540f940a90c408572cae7d
+  - enabled: 1
+    path: Assets/Scenes/CANVAS_4.unity
+    guid: b12d982f5e8755d41a6dafb19ab46a45
+  - enabled: 1
+    path: Assets/Scenes/CANVAS_5.unity
+    guid: 1d8f98f5c7a032944b4326b09c436077
+  - enabled: 1
+    path: Assets/Scenes/CANVAS_6.unity
+    guid: 1063bbadba8d8b7488c03c84f9d0d97e
+  m_configObjects:
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 4869f97700e7da64bbbbbb0a8251b351, type: 2}
+    xr.sdk.mock-hmd.settings: {fileID: 11400000, guid: 82e8b9941fd3c7440aa9d1fc7bc557ab, type: 2}
