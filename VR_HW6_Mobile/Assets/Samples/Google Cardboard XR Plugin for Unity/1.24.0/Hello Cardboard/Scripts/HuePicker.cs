@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ColorPicker : MonoBehaviour
+public class HuePicker : MonoBehaviour
 {
     public RawImage colorWheel; // Reference to the color wheel image
     public CardboardReticlePointer reticlePointer; // Reference to the Cardboard reticle pointer
