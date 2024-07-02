@@ -10,6 +10,8 @@ public class HuePicker : MonoBehaviour
 
     private Renderer targetRenderer; // Renderer of the target object
 
+    public HSVColor hsvColorScript;
+
     void Start()
     {
         // Get the Renderer component from the target object
@@ -52,11 +54,19 @@ public class HuePicker : MonoBehaviour
                 Texture2D texture = colorWheel.texture as Texture2D;
                 Color color = texture.GetPixel(x, y);
 
-                // Update the target object's material color to the selected color
-                targetRenderer.material.color = color;
+                // CHANGED
                 
+                // Convert RGB color to HSV
+                float h, s, v;
+                Color.RGBToHSV(color, out h, out s, out v);
+
+                // Set the hue of the object's material
+                hsvColorScript.SetHue(h);
+
+                //targetRenderer.material.color = color;
             }
         }
+
         else
         {
             Debug.Log("Raycast did not hit any object.");
