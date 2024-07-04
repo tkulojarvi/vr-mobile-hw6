@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HuePicker : MonoBehaviour
+public class HueSaturationPicker : MonoBehaviour
 {
     public RawImage colorWheel; // Reference to the color wheel image
     public CardboardReticlePointer reticlePointer; // Reference to the Cardboard reticle pointer
@@ -9,8 +9,7 @@ public class HuePicker : MonoBehaviour
     public GameObject targetObject; // Reference to the target object whose color will be updated
 
     private Renderer targetRenderer; // Renderer of the target object
-
-    public HSVColor hsvColorScript;
+    public HSVColor hsvColorScript; // Color object
 
     void Start()
     {
@@ -63,13 +62,15 @@ public class HuePicker : MonoBehaviour
                 // Set the hue of the object's material
                 hsvColorScript.SetHue(h);
 
-                //targetRenderer.material.color = color;
+                // Set the saturation of the object's material
+                hsvColorScript.SetSaturation(s);
             }
         }
 
         else
         {
             Debug.Log("Raycast did not hit any object.");
+            
         }
     }
 }
