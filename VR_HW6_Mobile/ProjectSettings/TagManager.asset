@@ -12,6 +12,15 @@ TagManager:
   - CANVAS_5
   - CANVAS_6
   - Spinner
+  - TAPE_4
+  - TAPE_5
+  - TAPE_6
+  - TAPE_3
+  - TAPE_7
+  - TAPE_2
+  - TAPE_8
+  - TAPE_1
+  - CANVAS_7
   layers:
   - Default
   - TransparentFX
@@ -20,7 +29,7 @@ TagManager:
   - Water
   - UI
   - Interactive
-  - 
+  - ColorWheelLayer
   - 
   - 
   - 

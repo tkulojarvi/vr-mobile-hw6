@@ -26,12 +26,11 @@ public class HueSaturationPicker : MonoBehaviour
         Ray ray = new Ray(reticlePointer.transform.position, reticlePointer.transform.forward);
         RaycastHit hit;
 
-        Debug.DrawRay(ray.origin, ray.direction * 700, Color.red); // Draw the ray in the scene view for debugging
+        // Define the layer mask for the color wheel layer
+        int layerMask = 1 << LayerMask.NameToLayer("ColorWheelLayer");
 
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
         {
-            //Debug.Log("Raycast hit: " + hit.transform.name); // Log the hit object
-
             // Ensure the hit object is the color wheel
             if (hit.transform == colorWheel.transform)
             {
@@ -39,10 +38,6 @@ public class HueSaturationPicker : MonoBehaviour
                 Vector2 localCursor;
                 RectTransformUtility.ScreenPointToLocalPointInRectangle(
                     colorWheel.rectTransform, hit.point, null, out localCursor);
-
-                // Clamp the local coordinates to ensure they fall within the color wheel bounds
-                //localCursor.x = Mathf.Clamp(localCursor.x, colorWheel.rectTransform.rect.xMin, colorWheel.rectTransform.rect.xMax);
-                //localCursor.y = Mathf.Clamp(localCursor.y, colorWheel.rectTransform.rect.yMin, colorWheel.rectTransform.rect.yMax);
 
                 // Convert local coordinates to texture coordinates
                 Rect rect = colorWheel.rectTransform.rect;
@@ -53,25 +48,20 @@ public class HueSaturationPicker : MonoBehaviour
                 Texture2D texture = colorWheel.texture as Texture2D;
                 Color color = texture.GetPixel(x, y);
 
-                // CHANGED
-                
                 // Convert RGB color to HSV
                 float h, s, v;
                 Color.RGBToHSV(color, out h, out s, out v);
 
-                // Set the hue of the object's material
+                // Set the hue and saturation of the object's material
                 hsvColorScript.SetHue(h);
-
-                // Set the saturation of the object's material
                 hsvColorScript.SetSaturation(s);
             }
         }
-
         else
         {
-            Debug.Log("Raycast did not hit any object.");
-            
+            Debug.Log("Raycast did not hit the color wheel.");
         }
     }
+
 }
 
