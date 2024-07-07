@@ -226,6 +226,12 @@ public class ObjectController : MonoBehaviour
             // Load the scene by its name
             SceneManager.LoadScene("CANVAS_6");
         }
+
+        else if (gameObject.tag == "CANVAS_7")
+        {
+            // Load the scene by its name
+            SceneManager.LoadScene("CANVAS_7");
+        }
     }
 
     void FixedUpdate()

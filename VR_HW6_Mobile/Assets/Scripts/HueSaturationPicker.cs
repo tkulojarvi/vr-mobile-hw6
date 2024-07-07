@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+using UnityEngine.SceneManagement;
+
 public class HueSaturationPicker : MonoBehaviour
 {
     public RawImage colorWheel; // Reference to the color wheel image
@@ -11,6 +13,10 @@ public class HueSaturationPicker : MonoBehaviour
     private Renderer targetRenderer; // Renderer of the target object
     public HSVColor hsvColorScript; // Color object
 
+    private Vector3 lastPointerPosition; // Last position of the reticle pointer
+    private float pointerStayTime; // Time the pointer has stayed in the same position
+    private const float tolerance = 0.01f; // Tolerance for position difference
+
     void Start()
     {
         // Get the Renderer component from the target object
@@ -18,6 +24,9 @@ public class HueSaturationPicker : MonoBehaviour
         {
             targetRenderer = targetObject.GetComponent<Renderer>();
         }
+
+        lastPointerPosition = Vector3.zero;
+        pointerStayTime = 0f;
     }
 
     void Update()
@@ -55,6 +64,26 @@ public class HueSaturationPicker : MonoBehaviour
                 // Set the hue and saturation of the object's material
                 hsvColorScript.SetHue(h);
                 hsvColorScript.SetSaturation(s);
+
+                // Check if the pointer has stayed in the same position with tolerance
+                if (Vector3.Distance(hit.point, lastPointerPosition) > tolerance)
+                {
+                    lastPointerPosition = hit.point;
+                    pointerStayTime = 0f;
+                }
+                else
+                {
+                    pointerStayTime += Time.deltaTime;
+
+                    // If the pointer has stayed for more than 3 seconds
+                    if (pointerStayTime >= 3f)
+                    {
+                        Debug.Log("Pointer stayed at the same position for more than 3 seconds.");
+
+                        // Load the scene by its name
+                        SceneManager.LoadScene("Main");
+                    }
+                }
             }
         }
         else
@@ -62,6 +91,6 @@ public class HueSaturationPicker : MonoBehaviour
             Debug.Log("Raycast did not hit the color wheel.");
         }
     }
-
 }
+
 
