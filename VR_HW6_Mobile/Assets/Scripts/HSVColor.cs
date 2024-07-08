@@ -13,9 +13,9 @@ public class HSVColor : MonoBehaviour
     public float value = 1f;          // Range 0 to 1
 
     // In degrees
-    private int hueDegrees = 0;
-    private int satDegrees = 0;
-    private int valDegrees = 0;
+    public int hueDegrees = 0;
+    public int satDegrees = 0;
+    public int valDegrees = 0;
 
     // Reference to the object's renderer
     private Renderer rend;

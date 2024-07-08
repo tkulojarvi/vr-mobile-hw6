@@ -15,6 +15,7 @@ public class HueSaturationPicker : MonoBehaviour
 
     private Vector3 lastPointerPosition; // Last position of the reticle pointer
     private float pointerStayTime; // Time the pointer has stayed in the same position
+    private float waitTime;
     private const float tolerance = 0.01f; // Tolerance for position difference
 
     void Start()
@@ -27,6 +28,7 @@ public class HueSaturationPicker : MonoBehaviour
 
         lastPointerPosition = Vector3.zero;
         pointerStayTime = 0f;
+        waitTime = 3f;
     }
 
     void Update()
@@ -75,21 +77,48 @@ public class HueSaturationPicker : MonoBehaviour
                 {
                     pointerStayTime += Time.deltaTime;
 
-                    // If the pointer has stayed for more than 3 seconds
-                    if (pointerStayTime >= 3f)
+                    // If the pointer has stayed for more than waitTime
+                    if (pointerStayTime >= waitTime)
                     {
-                        Debug.Log("Pointer stayed at the same position for more than 3 seconds.");
-
-                        // Load the scene by its name
-                        SceneManager.LoadScene("Main");
+                        ExitHandler();
                     }
                 }
             }
         }
         else
         {
-            Debug.Log("Raycast did not hit the color wheel.");
+            //Debug.Log("Raycast did not hit the color wheel.");
         }
+    }
+
+    void ExitHandler()
+    {
+        //Debug.Log("Pointer stayed at the same position for more than 3 seconds.");
+
+        /*
+        // Get the currently active scene
+        Scene currentScene = SceneManager.GetActiveScene();
+
+        // Main Screen Manager -> Update played scenes list
+        MainScreenManager.instance.UpdateBool(currentScene.name);
+
+        // Save the picked color value
+        hsvColorScript.SaveHSVValues();
+
+        // Load the scene by its name
+        SceneManager.LoadScene("Main");
+
+        */
+
+        // 1. UPDATE THE PLAYED SCENES BOOL
+        Scene currentScene = SceneManager.GetActiveScene();
+        MainScreenManager.instance.UpdateBool(currentScene.name);
+
+        // 2. SAVE THE HSV VALUES SOMEWHERE
+        //
+
+        // 3. LOAD THE MAIN SCENE
+        SceneManager.LoadScene("Main");
     }
 }
 
