@@ -10,7 +10,7 @@ public class ValuePicker : MonoBehaviour
     private Quaternion adjustedRotation; // Adjusted rotation for Unity
     
     // Color object
-    public HSVColor hSVColorScript;
+    public HSVColorVisualiser hSVColorScript;
     private float v;
 
 

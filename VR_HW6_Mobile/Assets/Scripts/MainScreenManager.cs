@@ -18,6 +18,9 @@ public class MainScreenManager : MonoBehaviour
     public bool[] scenesPlayed = new bool[6];
     public bool tutorialplayed = false;
 
+    // Array to store HSVColor objects
+    public HSVColorData[] colors;  
+
     void Awake()
     {
         // If an instance already exists and it's not this one, destroy this one
@@ -41,6 +44,9 @@ public class MainScreenManager : MonoBehaviour
         {
             scenesPlayed[i] = false;
         }
+
+        // Initialize the array with a size of 6
+        colors = new HSVColorData[6];
     }
 
     public void UpdateBool(string scenename)
@@ -81,10 +87,20 @@ public class MainScreenManager : MonoBehaviour
                 //Debug.LogWarning("Unknown scene name: " + scenename);
                 break;
         }
+    }
 
-        for (int i = 0; i < scenesPlayed.Length; i++)
+    // Method to set an HSVColor in the array
+    public void SaveColor(HSVColorData color, int index)
+    {
+        //int index = color.scenenumber;
+        if (index >= 0 && index < colors.Length)
         {
-            Debug.Log($"scenesPlayed[{i}] = {scenesPlayed[i]}");
+            colors[index] = color;
+            Debug.Log("Added to the array");
+        }
+        else
+        {
+            Debug.Log("Index out of bounds");
         }
     }
 }

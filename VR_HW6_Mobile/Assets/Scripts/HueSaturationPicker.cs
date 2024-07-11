@@ -11,7 +11,7 @@ public class HueSaturationPicker : MonoBehaviour
     public GameObject targetObject; // Reference to the target object whose color will be updated
 
     private Renderer targetRenderer; // Renderer of the target object
-    public HSVColor hsvColorScript; // Color object
+    public HSVColorVisualiser hsvColorScript; // Color object
 
     private Vector3 lastPointerPosition; // Last position of the reticle pointer
     private float pointerStayTime; // Time the pointer has stayed in the same position
@@ -63,7 +63,7 @@ public class HueSaturationPicker : MonoBehaviour
                 float h, s, v;
                 Color.RGBToHSV(color, out h, out s, out v);
 
-                // Set the hue and saturation of the object's material
+                // Set the hue and saturation of the visualiser object's material
                 hsvColorScript.SetHue(h);
                 hsvColorScript.SetSaturation(s);
 
@@ -93,31 +93,23 @@ public class HueSaturationPicker : MonoBehaviour
 
     void ExitHandler()
     {
-        //Debug.Log("Pointer stayed at the same position for more than 3 seconds.");
-
-        /*
-        // Get the currently active scene
-        Scene currentScene = SceneManager.GetActiveScene();
-
-        // Main Screen Manager -> Update played scenes list
-        MainScreenManager.instance.UpdateBool(currentScene.name);
-
-        // Save the picked color value
-        hsvColorScript.SaveHSVValues();
-
-        // Load the scene by its name
-        SceneManager.LoadScene("Main");
-
-        */
+        // 0. GET VALUES
+        float h = hsvColorScript.hue;
+        float s = hsvColorScript.saturation;
+        float v = hsvColorScript.value;
 
         // 1. UPDATE THE PLAYED SCENES BOOL
         Scene currentScene = SceneManager.GetActiveScene();
         MainScreenManager.instance.UpdateBool(currentScene.name);
 
-        // 2. SAVE THE HSV VALUES SOMEWHERE
-        //
+        // 2. CREATE A NEW HSVColor INSTANCE
+        HSVColorData hsvColorInstance = HSVColorData.Create(h, s, v);
 
-        // 3. LOAD THE MAIN SCENE
+        // 3. SAVE THE HSVColor INSTANCE TO THE ARRAY IN MainScreenManager
+        int colorIndex = (currentScene.buildIndex - 2);
+        MainScreenManager.instance.SaveColor(hsvColorInstance, colorIndex);
+
+        // 4. LOAD THE MAIN SCENE
         SceneManager.LoadScene("Main");
     }
 }
