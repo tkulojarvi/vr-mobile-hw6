@@ -3,6 +3,8 @@ using UnityEngine.UI;
 
 using UnityEngine.SceneManagement;
 
+using TMPro;
+
 public class HueSaturationPicker : MonoBehaviour
 {
     public RawImage colorWheel; // Reference to the color wheel image
@@ -18,6 +20,8 @@ public class HueSaturationPicker : MonoBehaviour
     private float waitTime;
     private const float tolerance = 0.01f; // Tolerance for position difference
 
+    public TextMeshProUGUI timerText; // Reference to the UI Text element for displaying the timer
+
     void Start()
     {
         // Get the Renderer component from the target object
@@ -29,6 +33,9 @@ public class HueSaturationPicker : MonoBehaviour
         lastPointerPosition = Vector3.zero;
         pointerStayTime = 0f;
         waitTime = 3f;
+
+        // Initialize the timer text
+        UpdateTimerText(waitTime);
     }
 
     void Update()
@@ -77,6 +84,9 @@ public class HueSaturationPicker : MonoBehaviour
                 {
                     pointerStayTime += Time.deltaTime;
 
+                    // Update the timer text
+                    UpdateTimerText(waitTime - pointerStayTime);
+
                     // If the pointer has stayed for more than waitTime
                     if (pointerStayTime >= waitTime)
                     {
@@ -87,8 +97,14 @@ public class HueSaturationPicker : MonoBehaviour
         }
         else
         {
-            //Debug.Log("Raycast did not hit the color wheel.");
+            // Reset the timer text if the pointer is not on the color wheel
+            UpdateTimerText(waitTime);
         }
+    }
+
+    void UpdateTimerText(float timeLeft)
+    {
+        timerText.text = "Time Left: " + Mathf.Max(0, timeLeft).ToString("F2") + "s";
     }
 
     void ExitHandler()

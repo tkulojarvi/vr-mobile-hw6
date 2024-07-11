@@ -53,6 +53,11 @@ public class MainScreenManager : MonoBehaviour
     {
         switch (scenename)
         {
+            case "CANVAS_1":
+                // Enable tutorialplayed bool
+                tutorialplayed = true;
+                break;
+
             case "CANVAS_2":
                 // Enable paper 1 and canvas 1
                 scenesPlayed[0] = true;
