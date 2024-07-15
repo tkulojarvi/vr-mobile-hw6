@@ -18,7 +18,7 @@ public class HueSaturationPicker : MonoBehaviour
     private Vector3 lastPointerPosition; // Last position of the reticle pointer
     private float pointerStayTime; // Time the pointer has stayed in the same position
     private float waitTime;
-    private const float tolerance = 0.01f; // Tolerance for position difference
+    private const float tolerance = 0.5f; // Tolerance for position difference
 
     public TextMeshProUGUI timerText; // Reference to the UI Text element for displaying the timer
 
@@ -104,7 +104,7 @@ public class HueSaturationPicker : MonoBehaviour
 
     void UpdateTimerText(float timeLeft)
     {
-        timerText.text = "Time Left: " + Mathf.Max(0, timeLeft).ToString("F2") + "s";
+        timerText.text = "DEBUG TIMER: " + Mathf.Max(0, timeLeft).ToString("F2") + "s";
     }
 
     void ExitHandler()

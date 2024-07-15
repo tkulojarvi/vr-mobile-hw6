@@ -5,28 +5,28 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Main.unity
     guid: a4f5a922d8ef24f408a8c63b398c165f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/CANVAS_1.unity
     guid: 67f02fb74f3545547b20d0972ee804cc
   - enabled: 1
     path: Assets/Scenes/CANVAS_2.unity
     guid: 6a03f3b100d5a2049adaa728c9732fe2
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/CANVAS_3.unity
     guid: 953eadaec7346cf41a3c643d0b0614dc
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/CANVAS_4.unity
     guid: 4d5eab841fe7beb4998146732b7bb7a0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/CANVAS_5.unity
     guid: 9989d1ee7ce27cc4a9599cfe47b44008
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/CANVAS_6.unity
     guid: 093cbeb434d7fb14c988fbf9eb38f795
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/CANVAS_7.unity
     guid: 8e281e966f38ace4391867b4be564ee6
   m_configObjects:
