@@ -81,7 +81,7 @@ public class ControlVisuals : MonoBehaviour
                 int valDegrees = Mathf.FloorToInt(value * 100);
 
                 // Update TextMeshPro or similar text component
-                texts[i].text = hueDegrees + "\n" + satDegrees + "\n" + valDegrees;
+                texts[i].text = "H:" + hueDegrees + "\n" + "S:" + satDegrees + "\n" + "V:" + valDegrees;
             }
 
             else

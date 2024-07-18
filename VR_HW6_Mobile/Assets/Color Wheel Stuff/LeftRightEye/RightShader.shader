@@ -3,6 +3,7 @@ Shader "Unlit/RightShader"
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
+        _Color ("Color", Color) = (1, 1, 1, 1)  // Add a color property with default white
     }
     SubShader
     {
@@ -34,6 +35,7 @@ Shader "Unlit/RightShader"
 
             sampler2D _MainTex;
             float4 _MainTex_ST;
+            fixed4 _Color;
 
             v2f vert (appdata v)
             {
@@ -46,15 +48,19 @@ Shader "Unlit/RightShader"
 
             fixed4 frag (v2f i) : SV_Target
             {
-
                 // RIGHT EYE
                 clip(unity_StereoEyeIndex - 0.5);
 
-                // sample the texture
-                fixed4 col = tex2D(_MainTex, i.uv);
-                // apply fog
-                UNITY_APPLY_FOG(i.fogCoord, col);
-                return col;
+                // Sample the texture
+                fixed4 texColor = tex2D(_MainTex, i.uv);
+
+                // Apply the color parameter
+                fixed4 finalColor = texColor * _Color;
+
+                // Apply fog
+                UNITY_APPLY_FOG(i.fogCoord, finalColor);
+
+                return finalColor;
             }
             ENDCG
         }
