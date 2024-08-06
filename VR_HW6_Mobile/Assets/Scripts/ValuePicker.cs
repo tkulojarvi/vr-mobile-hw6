@@ -30,7 +30,7 @@ public class ValuePicker : MonoBehaviour
             0f); // Ignore rotation around w-axis
 
         // Map adjustedRotation to range from 0 to 1 for variable v
-        v = Mathf.Clamp01(Mathf.InverseLerp(-0.5f, 0.5f, adjustedRotation.x));
+        v = Mathf.Clamp01(Mathf.InverseLerp(-0.25f, 0.25f, adjustedRotation.x));
 
         // Set color value
         hSVColorScript.SetValue(v);
