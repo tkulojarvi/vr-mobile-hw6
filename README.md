@@ -1,2 +1,2 @@
-# vection_vr_mobile
- Mobile version of VR Vection HW University of Oulu
+# vr_mobile
+ Mobile version of VR HW University of Oulu
