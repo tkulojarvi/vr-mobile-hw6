@@ -29,10 +29,11 @@ public class ValuePicker : MonoBehaviour
 
         float closest180 = Mathf.Round(adjustedRotation.eulerAngles.z / 180) * 180;
 
-        // Map adjustedRotation to range from 0 to 1 for variable v
-        v = Mathf.InverseLerp(-25f, 25f, closest180 - adjustedRotation.eulerAngles.z);
+        // Adjust the range to make v = 1 when there is no rotation deviation
+        v = Mathf.InverseLerp(-25f, 0f, closest180 - adjustedRotation.eulerAngles.z);
 
         // Set color value
         hSVColorScript.SetValue(v);
     }
+
 }
