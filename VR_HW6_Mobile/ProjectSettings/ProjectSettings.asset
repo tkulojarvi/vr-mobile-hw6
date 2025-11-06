@@ -13,7 +13,11 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: UniversityOfOulu
+<<<<<<< Updated upstream
   productName: ColorMatching_iOS
+=======
+  productName: ColorMatchingIOS
+>>>>>>> Stashed changes
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -87,7 +91,10 @@ PlayerSettings:
   muteOtherAudioSources: 0
   Prepare IOS For Recording: 0
   Force IOS Speakers When Recording: 0
+<<<<<<< Updated upstream
   audioSpatialExperience: 0
+=======
+>>>>>>> Stashed changes
   deferSystemGesturesMode: 11
   hideHomeButton: 1
   submitAnalytics: 1
@@ -168,7 +175,11 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.UniversityOfOulu.ColorHWMobile
     Standalone: com.DefaultCompany.Vection-Mobile
+<<<<<<< Updated upstream
     iPhone: com.UniversityOfOulu.ColorMatching
+=======
+    iPhone: com.UniversityOfOulu.ColorMatchingIOS
+>>>>>>> Stashed changes
   buildNumber:
     Standalone: 0
     VisionOS: 0
