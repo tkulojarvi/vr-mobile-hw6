@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 7
+  version: 10
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -39,6 +39,7 @@ Material:
   - TransparentDepthPrepass
   - TransparentDepthPostpass
   - TransparentBackface
+  - MOTIONVECTORS
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
@@ -139,6 +140,7 @@ Material:
     - _SunColorOne: {r: 1, g: 0.8820755, b: 0.41037735, a: 1}
     - _SunColorTwo: {r: 0.99056596, g: 0.26633137, b: 0.675045, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!114 &3632235004332457258
 MonoBehaviour:
   m_ObjectHideFlags: 11
