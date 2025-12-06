@@ -51,9 +51,6 @@
         "temp/": true,
         "Temp/": true
     },
-<<<<<<< Updated upstream
+    "VR_HW6_Mobile.slnx=======dotnet.defaultSolution": "VR_HW6_Mobile.sln>>>>>>>Stashedchanges",
     "dotnet.defaultSolution": "VR_HW6_Mobile.slnx"
-=======
-    "dotnet.defaultSolution": "VR_HW6_Mobile.sln"
->>>>>>> Stashed changes
 }
