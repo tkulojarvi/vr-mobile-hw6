@@ -22,8 +22,15 @@ public class HueSaturationPicker : MonoBehaviour
 
     public TextMeshProUGUI timerText; // Reference to the UI Text element for displaying the timer
 
+
+    // Variable to track time spent in the scene
+    private float timeSpentInScene;
+
     void Start()
     {
+        // Initialize timer
+        timeSpentInScene = 0f;
+
         // Get the Renderer component from the target object
         if (targetObject != null)
         {
@@ -40,6 +47,9 @@ public class HueSaturationPicker : MonoBehaviour
 
     void Update()
     {
+        // Increment time spent in the scene
+        timeSpentInScene += Time.deltaTime;
+
         // Perform a raycast from the reticle pointer to detect the color wheel
         Ray ray = new Ray(reticlePointer.transform.position, reticlePointer.transform.forward);
         RaycastHit hit;
@@ -124,6 +134,9 @@ public class HueSaturationPicker : MonoBehaviour
         // 3. SAVE THE HSVColor INSTANCE TO THE ARRAY IN MainScreenManager
         int colorIndex = (currentScene.buildIndex - 2);
         MainScreenManager.instance.SaveColor(hsvColorInstance, colorIndex);
+
+        // 3.5 SAVE THE TIME SPENT TO ARRAY IN MAINSCREENMANAGER
+        MainScreenManager.instance.SaveTime(colorIndex, timeSpentInScene);
 
         // 4. LOAD THE MAIN SCENE
         SceneManager.LoadScene("Main");

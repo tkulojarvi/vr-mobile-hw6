@@ -21,6 +21,10 @@ TagManager:
   - TAPE_8
   - TAPE_1
   - CANVAS_7
+  - CANVAS_R
+  - CANVAS_G
+  - CANVAS_B
+  - CANVAS_Y
   layers:
   - Default
   - TransparentFX

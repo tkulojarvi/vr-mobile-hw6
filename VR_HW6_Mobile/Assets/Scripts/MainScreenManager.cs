@@ -16,10 +16,17 @@ public class MainScreenManager : MonoBehaviour
 
     // Control bools for setting the visual state of the canvas in main
     public bool[] scenesPlayed = new bool[6];
-    public bool tutorialplayed = false;
+    //public bool tutorialplayed = true;
 
     // Array to store HSVColor objects
     public HSVColorData[] colors;  
+
+    // Array to store the time spent in each scene
+    public float[] timeSpentInScenes;
+
+
+
+
 
     void Awake()
     {
@@ -45,8 +52,11 @@ public class MainScreenManager : MonoBehaviour
             scenesPlayed[i] = false;
         }
 
-        // Initialize the array with a size of 6
-        colors = new HSVColorData[6];
+        // Initialize the array with a size of 10
+        colors = new HSVColorData[10];
+
+        // Initialize the array with the number of scenes
+        timeSpentInScenes = new float[10];
     }
 
     public void UpdateBool(string scenename)
@@ -55,7 +65,7 @@ public class MainScreenManager : MonoBehaviour
         {
             case "CANVAS_1":
                 // Enable tutorialplayed bool
-                tutorialplayed = true;
+                //tutorialplayed = true;
                 break;
 
             case "CANVAS_2":
@@ -97,15 +107,35 @@ public class MainScreenManager : MonoBehaviour
     // Method to set an HSVColor in the array
     public void SaveColor(HSVColorData color, int index)
     {
-        //int index = color.scenenumber;
-        if (index >= 0 && index < colors.Length)
+        // Get the currently active scene
+        Scene activeScene = SceneManager.GetActiveScene();
+        string sceneName = activeScene.name;
+        
+        if(sceneName != "CANVAS_1")
         {
-            colors[index] = color;
-            Debug.Log("Added to the array");
+            if (index >= 0 && index < colors.Length)
+            {
+                colors[index] = color;
+                //Debug.Log("Added to the array");
+            }
+            else
+            {
+                Debug.Log("Index out of bounds");
+            }
         }
-        else
+    }
+
+    public void SaveTime(int sceneIndex, float time)
+    {
+        // Get the currently active scene
+        Scene activeScene = SceneManager.GetActiveScene();
+        string sceneName = activeScene.name;
+
+        if(sceneName != "CANVAS_1")
         {
-            Debug.Log("Index out of bounds");
+            timeSpentInScenes[sceneIndex] = time;
         }
+        
+        ///Debug.Log("Time spent in scene " + sceneIndex + ": " + time + " seconds");
     }
 }

@@ -29,6 +29,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CANVAS_7.unity
     guid: 74f4709c3e582eb4d904be56a57dc1f7
+  - enabled: 1
+    path: Assets/Scenes/CANVAS_R.unity
+    guid: 920f82010041314449fa3ca93b7cf473
+  - enabled: 1
+    path: Assets/Scenes/CANVAS_G.unity
+    guid: 811cf258e03797644a2f5e9c3ea923fb
+  - enabled: 1
+    path: Assets/Scenes/CANVAS_B.unity
+    guid: 4653e9b6304164c4ebb41a4a50f5b78f
+  - enabled: 1
+    path: Assets/Scenes/CANVAS_Y.unity
+    guid: 3cc8b1438c0510f4db8299272d12b108
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 4869f97700e7da64bbbbbb0a8251b351, type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 4a61edc0b6c43ac4e9ecbbfe1d1f5ab6, type: 2}
     xr.sdk.mock-hmd.settings: {fileID: 11400000, guid: 82e8b9941fd3c7440aa9d1fc7bc557ab, type: 2}

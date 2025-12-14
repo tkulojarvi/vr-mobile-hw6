@@ -83,8 +83,8 @@ PlayerSettings:
   muteOtherAudioSources: 0
   Prepare IOS For Recording: 0
   Force IOS Speakers When Recording: 0
-  deferSystemGesturesMode: 0
-  hideHomeButton: 0
+  deferSystemGesturesMode: 11
+  hideHomeButton: 1
   submitAnalytics: 1
   usePlayerLog: 1
   dedicatedServerOptimizations: 0
@@ -159,7 +159,8 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: com.UniversityOfOulu.ColorHWMobile
-    Standalone: com.DefaultCompany.Vection-Mobile
+    Standalone: com.UniversityOfOulu.VRHW6PC
+    iPhone: com.UniversityOfOulu.VR-HW6-Mobile
   buildNumber:
     Standalone: 0
     VisionOS: 0
@@ -233,11 +234,11 @@ PlayerSettings:
   metalAPIValidation: 1
   iOSRenderExtraFrameOnPause: 0
   iosCopyPluginsCodeInsteadOfSymlink: 0
-  appleDeveloperTeamID: 
-  iOSManualSigningProvisioningProfileID: 
+  appleDeveloperTeamID: K5YQ5G2UW3
+  iOSManualSigningProvisioningProfileID: Homework6
   tvOSManualSigningProvisioningProfileID: 
   VisionOSManualSigningProvisioningProfileID: 
-  iOSManualSigningProvisioningProfileType: 0
+  iOSManualSigningProvisioningProfileType: 1
   tvOSManualSigningProvisioningProfileType: 0
   VisionOSManualSigningProvisioningProfileType: 0
   appleEnableAutomaticSigning: 0
@@ -588,7 +589,8 @@ PlayerSettings:
   enableInternalProfiler: 0
   logObjCUncaughtExceptions: 1
   enableCrashReportAPI: 0
-  cameraUsageDescription: 
+  cameraUsageDescription: Cardboard SDK requires camera permission to read the QR
+    code (required to get the encoded device parameters).
   locationUsageDescription: 
   microphoneUsageDescription: 
   bluetoothUsageDescription: 

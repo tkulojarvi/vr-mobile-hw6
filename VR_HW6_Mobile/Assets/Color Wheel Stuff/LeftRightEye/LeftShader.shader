@@ -3,6 +3,7 @@ Shader "Unlit/LeftShader"
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
+        _Color ("Albedo Color", Color) = (1,1,1,1)
     }
     SubShader
     {
@@ -34,6 +35,7 @@ Shader "Unlit/LeftShader"
 
             sampler2D _MainTex;
             float4 _MainTex_ST;
+            float4 _Color; // Add the color property
 
             v2f vert (appdata v)
             {
@@ -46,12 +48,14 @@ Shader "Unlit/LeftShader"
 
             fixed4 frag (v2f i) : SV_Target
             {
-
                 // LEFT EYE
                 clip(0.5 - unity_StereoEyeIndex);
 
                 // sample the texture
                 fixed4 col = tex2D(_MainTex, i.uv);
+                // multiply the texture with the albedo color
+                col *= _Color;
+
                 // apply fog
                 UNITY_APPLY_FOG(i.fogCoord, col);
                 return col;
@@ -60,3 +64,4 @@ Shader "Unlit/LeftShader"
         }
     }
 }
+
